@@ -46,7 +46,7 @@ function App() {
       <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p className="errorP">
-          <span class="red">Error</span> 404
+          <span class="red">Errores</span> 404
           </p>
           <div className="row">
             <CustomButton1 startIcon={<ArrowBackIosIcon/>}>GO BACK</CustomButton1>
