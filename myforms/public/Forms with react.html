@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3001/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3001/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3001/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3001/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Forms with react</title>
+  <style>body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvaW5kZXguY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsU0FBUztFQUNUOztjQUVZO0VBQ1osbUNBQW1DO0VBQ25DLGtDQUFrQztBQUNwQzs7QUFFQTtFQUNFO2FBQ1c7QUFDYiIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICBtYXJnaW46IDA7XG4gIGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsICdSb2JvdG8nLCAnT3h5Z2VuJyxcbiAgICAnVWJ1bnR1JywgJ0NhbnRhcmVsbCcsICdGaXJhIFNhbnMnLCAnRHJvaWQgU2FucycsICdIZWx2ZXRpY2EgTmV1ZScsXG4gICAgc2Fucy1zZXJpZjtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG59XG5cbmNvZGUge1xuICBmb250LWZhbWlseTogc291cmNlLWNvZGUtcHJvLCBNZW5sbywgTW9uYWNvLCBDb25zb2xhcywgJ0NvdXJpZXIgTmV3JyxcbiAgICBtb25vc3BhY2U7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap);</style><style>.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+.App-header {
+  background: linear-gradient(34deg, rgba(28,28,28,1) 0%, rgba(122,122,122,1) 99%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.header-1{
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 150%;
+  color: #FFFFFF;
+  -webkit-text-stroke: 3px black;
+}
+
+
+
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQXBwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQTtFQUNFLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGNBQWM7RUFDZCxvQkFBb0I7QUFDdEI7OztBQUdBO0VBQ0UsZ0ZBQWdGO0VBQ2hGLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLDZCQUE2QjtFQUM3QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxrQ0FBa0M7RUFDbEMsa0JBQWtCO0VBQ2xCLG1CQUFtQjtFQUNuQixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCw4QkFBOEI7QUFDaEMiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3MyP2ZhbWlseT1SYWxld2F5OndnaHRANTAwJmRpc3BsYXk9c3dhcCcpO1xuXG5cbi5BcHAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5BcHAtbG9nbyB7XG4gIGhlaWdodDogNDB2bWluO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuXG4uQXBwLWhlYWRlciB7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgzNGRlZywgcmdiYSgyOCwyOCwyOCwxKSAwJSwgcmdiYSgxMjIsMTIyLDEyMiwxKSA5OSUpO1xuICBtaW4taGVpZ2h0OiAxMDB2aDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogY2FsYygxMHB4ICsgMnZtaW4pO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5oZWFkZXItMXtcbiAgZm9udC1mYW1pbHk6ICdSYWxld2F5Jywgc2Fucy1zZXJpZjtcbiAgZm9udC1zdHlsZTogbm9ybWFsO1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBmb250LXNpemU6IDY0cHg7XG4gIGxpbmUtaGVpZ2h0OiAxNTAlO1xuICBjb2xvcjogI0ZGRkZGRjtcbiAgLXdlYmtpdC10ZXh0LXN0cm9rZTogM3B4IGJsYWNrO1xufVxuXG5cblxuXG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style data-emotion="css-global" data-s="">@-webkit-keyframes mui-auto-fill{from{display:block;}}</style><style data-emotion="css-global" data-s="">@keyframes mui-auto-fill{from{display:block;}}</style><style data-emotion="css-global" data-s="">@-webkit-keyframes mui-auto-fill-cancel{from{display:block;}}</style><style data-emotion="css-global" data-s="">@keyframes mui-auto-fill-cancel{from{display:block;}}</style><style data-emotion="css-global" data-s="">@-webkit-keyframes mui-auto-fill{from{display:block;}}</style><style data-emotion="css-global" data-s="">@keyframes mui-auto-fill{from{display:block;}}</style><style data-emotion="css-global" data-s="">@-webkit-keyframes mui-auto-fill-cancel{from{display:block;}}</style><style data-emotion="css-global" data-s="">@keyframes mui-auto-fill-cancel{from{display:block;}}</style><style data-emotion="css" data-s="">.css-1vam7s3-MuiGrid-root{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;width:100%;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}</style><style data-emotion="css" data-s="">.css-ayy8wd-MuiGrid-root{box-sizing:border-box;margin:0;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-basis:50%;-ms-flex-preferred-size:50%;flex-basis:50%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:50%;}</style><style data-emotion="css" data-s="">.css-1ov0oqu-MuiGrid-root{box-sizing:border-box;margin:0;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}</style><style data-emotion="css" data-s="">.css-1ov0oqu-MuiGrid-root>.MuiGrid-item{max-width:none;}</style><style data-emotion="css" data-s="">.css-1xj1k15-MuiTextField-root{}</style><style data-emotion="css" data-s="">.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;position:relative;min-width:0;padding:0;margin:0;border:0;vertical-align:top;}</style><style data-emotion="css" data-s="">.css-1x92c1k-MuiInputLabel-root{display:block;transform-origin:top left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 24px);position:absolute;left:0;top:0;-webkit-transform:translate(14px, 16px) scale(1);-moz-transform:translate(14px, 16px) scale(1);-ms-transform:translate(14px, 16px) scale(1);transform:translate(14px, 16px) scale(1);-webkit-transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;z-index:1;pointer-events:none;}</style><style data-emotion="css" data-s="">.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{color:rgba(0, 0, 0, 0.6);font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.4375em;letter-spacing:0.00938em;padding:0;position:relative;display:block;transform-origin:top left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 24px);position:absolute;left:0;top:0;-webkit-transform:translate(14px, 16px) scale(1);-moz-transform:translate(14px, 16px) scale(1);-ms-transform:translate(14px, 16px) scale(1);transform:translate(14px, 16px) scale(1);-webkit-transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;z-index:1;pointer-events:none;}</style><style data-emotion="css" data-s="">.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{color:#1976d2;}</style><style data-emotion="css" data-s="">.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-disabled{color:rgba(0, 0, 0, 0.38);}</style><style data-emotion="css" data-s="">.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-error{color:#d32f2f;}</style><style data-emotion="css" data-s="">.css-wgai2y-MuiFormLabel-asterisk{}</style><style data-emotion="css" data-s="">.css-wgai2y-MuiFormLabel-asterisk.Mui-error{color:#d32f2f;}</style><style data-emotion="css" data-s="">.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.4375em;letter-spacing:0.00938em;color:rgba(0, 0, 0, 0.87);box-sizing:border-box;position:relative;cursor:text;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;border-radius:4px;}</style><style data-emotion="css" data-s="">.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-disabled{color:rgba(0, 0, 0, 0.38);cursor:default;}</style><style data-emotion="css" data-s="">.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.87);}</style><style data-emotion="css" data-s="">@media (hover: none){.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.23);}}</style><style data-emotion="css" data-s="">.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{border-color:#1976d2;border-width:2px;}</style><style data-emotion="css" data-s="">.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline{border-color:#d32f2f;}</style><style data-emotion="css" data-s="">.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-disabled .MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.26);}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{font:inherit;letter-spacing:inherit;color:currentColor;padding:4px 0 5px;border:0;box-sizing:content-box;background:none;height:1.4375em;margin:0;-webkit-tap-highlight-color:transparent;display:block;min-width:0;width:100%;-webkit-animation-name:mui-auto-fill-cancel;animation-name:mui-auto-fill-cancel;-webkit-animation-duration:10ms;animation-duration:10ms;padding:16.5px 14px;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder{color:currentColor;opacity:0.42;-webkit-transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus{outline:0;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:invalid{box-shadow:none;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-search-decoration{-webkit-appearance:none;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder{opacity:0!important;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-webkit-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-moz-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus:-ms-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-ms-input-placeholder{opacity:0.42;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled{opacity:1;-webkit-text-fill-color:rgba(0, 0, 0, 0.38);}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill{-webkit-animation-duration:5000s;animation-duration:5000s;-webkit-animation-name:mui-auto-fill;animation-name:mui-auto-fill;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill{border-radius:inherit;}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitBoxShadow{}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitTextFillColor{}</style><style data-emotion="css" data-s="">.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill caretColor{}</style><style data-emotion="css" data-s="">.css-rki20w-MuiOutlinedInput-notchedOutline{border-color:rgba(0, 0, 0, 0.23);}</style><style data-emotion="css" data-s="">.css-1d3z3hw-MuiOutlinedInput-notchedOutline{text-align:left;position:absolute;bottom:0;right:0;top:-5px;left:0;margin:0;padding:0 8px;pointer-events:none;border-radius:inherit;border-style:solid;border-width:1px;overflow:hidden;min-width:0%;border-color:rgba(0, 0, 0, 0.23);}</style><style data-emotion="css" data-s="">.css-dhh0px{display:block;width:auto;padding:0;height:11px;font-size:0.75em;visibility:hidden;max-width:0.01px;-webkit-transition:max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;}</style><style data-emotion="css" data-s="">.css-dhh0px>span{padding-left:5px;padding-right:5px;display:inline-block;}</style><style data-emotion="css" data-s="">.css-10tjo1u-MuiButton-root{font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:500;font-size:0.875rem;line-height:1.75;letter-spacing:0.02857em;text-transform:uppercase;min-width:64px;padding:5px 15px;border-radius:4px;-webkit-transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;border:1px solid rgba(25, 118, 210, 0.5);color:#1976d2;}</style><style data-emotion="css" data-s="">.css-10tjo1u-MuiButton-root:hover{-webkit-text-decoration:none;text-decoration:none;background-color:rgba(25, 118, 210, 0.04);border:1px solid #1976d2;}</style><style data-emotion="css" data-s="">@media (hover: none){.css-10tjo1u-MuiButton-root:hover{background-color:transparent;}}</style><style data-emotion="css" data-s="">.css-10tjo1u-MuiButton-root:active{}</style><style data-emotion="css" data-s="">.css-10tjo1u-MuiButton-root.Mui-focusVisible{}</style><style data-emotion="css" data-s="">.css-10tjo1u-MuiButton-root.Mui-disabled{color:rgba(0, 0, 0, 0.26);border:1px solid rgba(0, 0, 0, 0.12);}</style><style data-emotion="css" data-s="">.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;background-color:transparent;outline:0;border:0;margin:0;border-radius:0;padding:0;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;vertical-align:middle;-moz-appearance:none;-webkit-appearance:none;-webkit-text-decoration:none;text-decoration:none;color:inherit;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:500;font-size:0.875rem;line-height:1.75;letter-spacing:0.02857em;text-transform:uppercase;min-width:64px;padding:5px 15px;border-radius:4px;-webkit-transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;border:1px solid rgba(25, 118, 210, 0.5);color:#1976d2;}</style><style data-emotion="css" data-s="">.css-1rwt2y5-MuiButtonBase-root-MuiButton-root::-moz-focus-inner{border-style:none;}</style><style data-emotion="css" data-s="">.css-1rwt2y5-MuiButtonBase-root-MuiButton-root.Mui-disabled{pointer-events:none;cursor:default;}</style><style data-emotion="css" data-s="">@media print{.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{-webkit-print-color-adjust:exact;color-adjust:exact;}}</style><style data-emotion="css" data-s="">.css-1rwt2y5-MuiButtonBase-root-MuiButton-root:hover{-webkit-text-decoration:none;text-decoration:none;background-color:rgba(25, 118, 210, 0.04);border:1px solid #1976d2;}</style><style data-emotion="css" data-s="">@media (hover: none){.css-1rwt2y5-MuiButtonBase-root-MuiButton-root:hover{background-color:transparent;}}</style><style data-emotion="css" data-s="">.css-1rwt2y5-MuiButtonBase-root-MuiButton-root:active{}</style><style data-emotion="css" data-s="">.css-1rwt2y5-MuiButtonBase-root-MuiButton-root.Mui-focusVisible{}</style><style data-emotion="css" data-s="">.css-1rwt2y5-MuiButtonBase-root-MuiButton-root.Mui-disabled{color:rgba(0, 0, 0, 0.26);border:1px solid rgba(0, 0, 0, 0.12);}</style><style data-emotion="css" data-s="">.css-8je8zh-MuiTouchRipple-root{overflow:hidden;pointer-events:none;position:absolute;z-index:0;top:0;right:0;bottom:0;left:0;border-radius:inherit;}</style><style data-emotion="css" data-s="">.css-lqk1w2{display:grid;grid-template-rows:repeat(3, 1fr);}</style><style data-emotion="css" data-s="">.css-1bzvmy4-MuiInputLabel-root{display:block;transform-origin:top left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(133% - 24px);position:absolute;left:0;top:0;-webkit-transform:translate(14px, -9px) scale(0.75);-moz-transform:translate(14px, -9px) scale(0.75);-ms-transform:translate(14px, -9px) scale(0.75);transform:translate(14px, -9px) scale(0.75);-webkit-transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;z-index:1;pointer-events:none;}</style><style data-emotion="css" data-s="">.css-1kty9di-MuiFormLabel-root-MuiInputLabel-root{color:rgba(0, 0, 0, 0.6);font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1rem;line-height:1.4375em;letter-spacing:0.00938em;padding:0;position:relative;display:block;transform-origin:top left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(133% - 24px);position:absolute;left:0;top:0;-webkit-transform:translate(14px, -9px) scale(0.75);-moz-transform:translate(14px, -9px) scale(0.75);-ms-transform:translate(14px, -9px) scale(0.75);transform:translate(14px, -9px) scale(0.75);-webkit-transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,-webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;transition:color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;z-index:1;pointer-events:none;}</style><style data-emotion="css" data-s="">.css-1kty9di-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{color:#1976d2;}</style><style data-emotion="css" data-s="">.css-1kty9di-MuiFormLabel-root-MuiInputLabel-root.Mui-disabled{color:rgba(0, 0, 0, 0.38);}</style><style data-emotion="css" data-s="">.css-1kty9di-MuiFormLabel-root-MuiInputLabel-root.Mui-error{color:#d32f2f;}</style><style data-emotion="css" data-s="">.css-186xcr5{display:block;width:auto;padding:0;height:11px;font-size:0.75em;visibility:hidden;max-width:100%;-webkit-transition:max-width 100ms cubic-bezier(0.0, 0, 0.2, 1) 50ms;transition:max-width 100ms cubic-bezier(0.0, 0, 0.2, 1) 50ms;}</style><style data-emotion="css" data-s="">.css-186xcr5>span{padding-left:5px;padding-right:5px;display:inline-block;}</style><style data-emotion="css" data-s="">.css-1d1ivs5-MuiGrid-root{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;width:100%;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-left:1600px;}</style><style data-emotion="css" data-s="">.css-1u134uz-MuiGrid-root{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;width:100%;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-left:160px;}</style><style data-emotion="css" data-s="">.css-1dqsg2e{display:grid;grid-template-rows:repeat(3, 1fr);grid-gap:20px;}</style><style data-emotion="css" data-s="">.css-e8hqef{display:grid;grid-template-rows:repeat(3, 1fr);grid-gap:30px;}</style><style data-jss="" data-meta="Component">
+.Component-root-1 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-2 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-3 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-4 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-5 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-6 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-7 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-8 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-9 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-10 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-11 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-12 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-13 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-14 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-15 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-16 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-17 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-18 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-19 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-20 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-23 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-24 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-21 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-22 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-27 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-28 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-25 {
+  color: black;
+  width: 1205px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-26 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-31 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-32 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-29 {
+  color: black;
+  width: 225px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-30 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-35 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-36 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-33 {
+  color: black;
+  width: 225px;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-34 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-39 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-40 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-37 {
+  color: black;
+  width: 225px;
+  height: 48px;
+  font-size: 205px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-38 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-43 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-44 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-41 {
+  color: black;
+  width: 225px;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-42 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-47 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-48 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-45 {
+  color: black;
+  width: 225px;
+  height: 428px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-46 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-51 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-52 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-49 {
+  color: black;
+  width: 225px;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-50 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-55 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  align-content: center;
+  border-radius: 11px;
+}
+.Component-label-56 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-53 {
+  color: black;
+  width: 225px;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-54 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-59 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-60 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-57 {
+  color: black;
+  width: 225px;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-58 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-63 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-64 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-61 {
+  color: black;
+  width: 325px;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-62 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-67 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  text-align: center;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-68 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-65 {
+  color: black;
+  width: 325px;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-66 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-71 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-72 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-69 {
+  color: black;
+  width: 325px;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-70 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-75 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-76 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-73 {
+  color: black;
+  width: 325px;
+  height: 48px;
+  font-size: 65px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-74 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-79 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-80 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-77 {
+  color: whiter;
+  width: 325px;
+  height: 48px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  border-radius: 11px;
+}
+.Component-label-78 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-83 {
+  color: black;
+  width: 125px;
+  border: 2px solid #790A91;
+  height: 48px;
+  font-size: 25px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  font-weight: bold;
+  border-radius: 11px;
+}
+.Component-label-84 {
+  text-transform: capitalize;
+}
+</style><style data-jss="" data-meta="Component">
+.Component-root-81 {
+  color: white;
+  width: 325px;
+  height: 48px;
+  background: transparent;
+  font-family: 'Raleway','sans-serif';
+  border-radius: 11px;
+}
+.Component-label-82 {
+  text-transform: capitalize;
+}
+</style><script charset="utf-8" src="./Forms with react_files/main.7358a0a792be30518d58.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.5827c3d5dea9dcea1add.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.ce0476c5f68d534856d5.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.70fa5481d3d85f268c99.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.8f6fad1f437b5b7d78fe.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.6e6f28302610415c1050.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.f93000e514ff2ae6d80a.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.8f4f7ac0adcb8e54acd8.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.702fa33ee6f95bd1e960.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.89e58ce59936d2d66901.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.573a40fa49cae25e2c4c.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.1f57bd0a86f1446b38cf.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.f42e308784c22852b84b.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.57416425c09f1bfd54ed.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.58717b5aff79fcdcbedf.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.48f77ac5fb7142cc3f27.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.fc03cb23b8cd5c33c39c.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.348e6874554a71537f33.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.f176084b45d55f86ad8a.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.07349f7ab16f71aeb7f1.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.5aeb58abd7e06b493457.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.a183e5c2217d3c7a9fd0.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.fcb7daa5de3ee96d96ee.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.5a0516ac66b3495664ba.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.24ff5acc26bd915af72c.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.193ecdec92d325bf278e.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.676cadd955dfe5b9b89d.hot-update.js.descarga"></script><script charset="utf-8" src="./Forms with react_files/main.0ccffff966794807ec8f.hot-update.js.descarga"></script></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="App"><header class="App-header"><div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-undefined css-1u134uz-MuiGrid-root" justify="center"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-ayy8wd-MuiGrid-root" style="text-align: left;"><h1 class="header-1">FORMS <br> WITH <br> REACT</h1></div><div class="MuiBox-root css-e8hqef"><div class="MuiFormControl-root Component-root-81 MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"><label class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-required css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root" data-shrink="false" for="outlined-basic" id="outlined-basic-label">USER<span aria-hidden="true" class="MuiInputLabel-asterisk MuiFormLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"> *</span></label><div class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"><input aria-invalid="false" id="outlined-basic" required="" type="text" class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input" value=""><fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"><legend class="css-dhh0px"><span>USER&nbsp;*</span></legend></fieldset></div></div><div class="MuiFormControl-root Component-root-81 MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"><label class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-required css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root" data-shrink="false" for="outlined-basic" id="outlined-basic-label">PASSWORD<span aria-hidden="true" class="MuiInputLabel-asterisk MuiFormLabel-asterisk css-wgai2y-MuiFormLabel-asterisk"> *</span></label><div class="MuiOutlinedInput-root MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root"><input aria-invalid="false" id="outlined-basic" required="" type="password" class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input" value=""><fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"><legend class="css-dhh0px"><span>PASSWORD&nbsp;*</span></legend></fieldset></div></div><button class="Component-root-83 MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButtonBase-root css-1rwt2y5-MuiButtonBase-root-MuiButton-root" tabindex="0" type="submit">SUBMIT<span class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"></span></button></div></div></header></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./Forms with react_files/bundle.js.descarga"></script><script src="./Forms with react_files/vendors_main.chunk.js.descarga"></script><script src="./Forms with react_files/main.chunk.js.descarga"></script>
+
+</body></html>
